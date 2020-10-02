@@ -1,0 +1,14 @@
+/* Stylesheet */
+a{
+    color: coral;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.contact-info{
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 275px;
+    padding: 5px 10px;
+}
