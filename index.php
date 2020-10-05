@@ -12,6 +12,10 @@ $result = mysqli_query($connect, $sql);
 // fetch resulting rows as arrays
 $contacts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+mysqli_free_result($result);
+
+// close connection
+mysqli_close($connect);
 
 
 ?>
@@ -19,20 +23,19 @@ $contacts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="styles.css" rel="stylesheet">
     <title>Contacts Page</title>
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
     <h1>My Contacts Page</h1>
     <a href="add-contact.php">Add New Contact</a>
+    <!-- <a href="delete-contact.php">Delete New Contact</a> -->
+
 
     <!-- Add Information -->
     <div>
     <br>
-    <!-- <?php foreach ($contacts as $contact) : ?> -->
+    <?php foreach ($contacts as $contact) : ?>
 
         <div class="contact-info">
             <?php echo htmlspecialchars('Name: ' . $contact['names']);?> <br>
@@ -40,14 +43,11 @@ $contacts = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <?php echo htmlspecialchars('Birthday: ' . $contact['birthday']);?>
         </div>
         
-        
-        
         <br>
 
-
-
-    <!-- <?php endforeach; ?> -->
+    <?php endforeach; ?>
 
     </div>
 </body>
 </html>
+
