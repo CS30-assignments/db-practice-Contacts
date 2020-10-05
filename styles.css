@@ -1,9 +1,9 @@
 /* Stylesheet */
 a{
-    color: black;
+    color: coral;
     font-size: 25px;
     text-decoration: none;
-    display: inline;
+    padding-right: 20px;
 }
 
 .contact-info{
