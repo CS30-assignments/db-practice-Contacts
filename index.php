@@ -3,7 +3,7 @@
 include('connect-db.php');
 
 // write query for contacts
-$sql = "SELECT names, phone, birthday FROM contacts";
+$sql = "SELECT names, phone, birthday, id FROM contacts";
 
 // make query and get contacts
 $result = mysqli_query($connect, $sql);
@@ -14,8 +14,11 @@ $contacts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 mysqli_free_result($result);
 
+
 // close connection
 mysqli_close($connect);
+
+
 
 
 ?>
@@ -29,13 +32,16 @@ mysqli_close($connect);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contacts Page</title>
     <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>My Contacts Page</h1>
-    <a href="add-contact.php">Add New Contact</a>
-    <a href="delete-contact.php">Delete Contact</a>
+    <!-- Main Heading -->
+    <div class="jumbotron bg-danger container">
+        <h1 class="display-4">My Contacts Page</h1>
+    </div>
 
+    <a class="add" href="add-contact.php">Add New Contact</a>
 
     <!-- Add Information -->
     <div>
@@ -43,10 +49,14 @@ mysqli_close($connect);
         <?php foreach ($contacts as $contact) : ?>
 
             <div class="contact-info">
-                <?php echo htmlspecialchars('Name: ' . $contact['names']); ?> <br>
-                <?php echo htmlspecialchars('Phone: ' . $contact['phone']); ?> <br>
-                <?php echo htmlspecialchars('Birthday: ' . $contact['birthday']); ?>
+                <?php echo htmlspecialchars($contact['names']); ?> <br>
+                <!-- <?php echo htmlspecialchars('Phone: ' . $contact['phone']); ?> <br>
+                <?php echo htmlspecialchars('Birthday: ' . $contact['birthday']); ?> -->
+                <br>
+                <a class="view" href="view-contact.php?id=<?php echo $contact['id'] ?>">View Contact</a>
+
             </div>
+
 
             <br>
 

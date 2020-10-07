@@ -3,8 +3,8 @@
 include('connect-db.php');
 
 
-// Initialize Variables;
-$name = $phone = $birthday = '';
+// // Initialize Variables;
+// $name = $phone = $birthday = '';
 
 $blank = array('names' => '', 'phone' => '', 'birthday' => '');
 

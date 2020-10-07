@@ -5,5 +5,6 @@
 $connect = mysqli_connect('localhost', 'navika', 'php8090', 'contacts-page');
 
 
-
+// Initialize Variables;
+$name = $phone = $birthday = '';
 ?>
