@@ -35,20 +35,20 @@ mysqli_close($connect);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-info">
     <!-- Main Heading -->
-    <div class="jumbotron bg-danger container">
-        <h1 class="display-4">My Contacts Page</h1>
+    <!-- Navigation bar w/ add and delete contact -->
+    <div class="navbar">
+            <h1 class="display-4">My Contacts</h1>
+        <a class="btn btn-secondary" href="add-contact.php">Add New Contact</a>
     </div>
 
-    <a class="add" href="add-contact.php">Add New Contact</a>
-
     <!-- Add Information -->
-    <div>
+    <div class="col">
         <br>
         <?php foreach ($contacts as $contact) : ?>
 
-            <div class="contact-info">
+            <div class= "contacts bg-light">
                 <?php echo htmlspecialchars($contact['names']); ?> <br>
                 <!-- <?php echo htmlspecialchars('Phone: ' . $contact['phone']); ?> <br>
                 <?php echo htmlspecialchars('Birthday: ' . $contact['birthday']); ?> -->

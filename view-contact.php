@@ -46,15 +46,17 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>View Contact</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="add-background">
     <!-- Dispalay Contact Information -->
 
     <?php if ($contact) { ?>
-        <h2>View Contact</h2>
+        <h2 class="text-center">View Contact</h2>
 
-        <div>
+        <div class="container bg-info py-3">
             <!-- Name -->
             <p>
                 <h3>Name:</h3>
@@ -73,10 +75,10 @@ if (isset($_GET['id'])) {
 
         </div>
 
-        <form method="post">
+        <form class = "pr-5 pt-3" method="post">
             <!-- Delete Contact -->
             <input type="hidden" name="delete_id" value="<?php echo $contact['id'] ?>">
-            <input id="delete-contact"  type="submit" name="delete-contact" value="Delete Contact">
+            <input class= "btn bg-danger float-right" id="delete-contact"  type="submit" name="delete-contact" value="Delete Contact">
         </form>
 
     <?php } ?>
